@@ -156,7 +156,7 @@ module CarrierWave
     def read(chunk_size)
       if is_path?
         puts "In is_path?"
-        if(!@opened_file.defined?)
+        if(@opened_file.nil?)
           puts "Opening file"
           @opened_file = File.open(@file, "rb") 
         end
