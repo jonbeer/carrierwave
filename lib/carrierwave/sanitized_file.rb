@@ -152,9 +152,16 @@ module CarrierWave
     #
     # [String] contents of the file
     # Default chunk_size 2Mb (2097152)
+    @opened_file
     def read(chunk_size)
       if is_path?
-        File.open(@file, "rb") {|file| file.read}
+        puts "In is_path?"
+        if(!@opened_file.defined?)
+          puts "Opening file"
+          @opened_file = File.open(@file, "rb") 
+        end
+        puts "Reading opened file"
+        @opened_file.read(chunk_size)
       else
         if(!chunk_size.defined?)
           puts "Rewiding file..." 
