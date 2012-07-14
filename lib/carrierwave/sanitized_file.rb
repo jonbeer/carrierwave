@@ -158,6 +158,7 @@ module CarrierWave
         puts "In is_path?"
         if(@opened_file.nil?)
           puts "Opening file"
+          puts @opened_file
           @opened_file = File.open(@file, "rb") 
         end
         puts "Reading opened file"
